@@ -416,7 +416,7 @@ KBUILD_CFLAGS   := -Wall -DNDEBUG -Wundef -Wstrict-prototypes -Wno-trigraphs \
 		   -ffast-math -fsingle-precision-constant \
 		   -fgcse-lm -fgcse-sm -fsched-spec-load -fforce-addr \
 		   $(KERNELFLAGS2) \
-		   -std=gnull
+		   -std=gnu89
 
 KBUILD_AFLAGS_KERNEL :=
 KBUILD_CFLAGS_KERNEL :=
