@@ -7,6 +7,7 @@
 #include <linux/fs.h>
 #include <linux/slab.h>
 #include <linux/export.h>
+#include <linux/module.h>
 #include <linux/namei.h>
 #include <linux/sched.h>
 #include <linux/writeback.h>
@@ -313,6 +314,9 @@ SYSCALL_DEFINE(sync_file_range)(int fd, loff_t offset, loff_t nbytes,
 	loff_t endbyte;			/* inclusive */
 	int fput_needed;
 	umode_t i_mode;
+
+	if (!fsync_enabled)
+		return 0;
 
 	ret = -EINVAL;
 	if (flags & ~VALID_FLAGS)
